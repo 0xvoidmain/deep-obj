@@ -1,5 +1,5 @@
 {
-  "name": "deep-object",
+  "name": "deep-obj",
   "version": "1.0.0",
   "description": "Set and get values on objects via dot-notation strings",
   "main": "index.js",

@@ -5,7 +5,7 @@ Set and get values on objects via dot-notation strings.
 ## Example
 
 ```js
-var DeepObject = require('deep-object');
+var DeepObject = require('deep-obj');
 var get = DeepObject.get;
 var set = DeepObject.set;
 
@@ -88,7 +88,7 @@ Ex:
 With [npm](https://npmjs.org) do:
 
 ```bash
-npm install deep-object
+npm install deep-obj
 ```
 
 ## License
