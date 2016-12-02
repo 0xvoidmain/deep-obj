@@ -2,8 +2,6 @@
 
 Set and get values on objects via dot-notation strings.
 
-[![testling badge](https://ci.testling.com/acstll/deep-get-set.png)](https://ci.testling.com/acstll/deep-get-set)
-
 ## Example
 
 ```js
@@ -78,8 +76,11 @@ Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']
 The function will return an array of path;
 
 Ex:
+
 `foo.bar` => `['foo', 'bar']`
+
 `foo.bar[0][1]` => `['foo', 'bar', 0, 1]` 
+
 `[0][1].foo['bar']` => [0, 1, 'foo', 'bar']
 
 ## Installation
