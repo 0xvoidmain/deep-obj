@@ -81,7 +81,7 @@ Ex:
 
 `foo.bar[0][1]` => `['foo', 'bar', 0, 1]` 
 
-`[0][1].foo['bar']` => [0, 1, 'foo', 'bar']
+`[0][1].foo['bar']` => `[0, 1, 'foo', 'bar']`
 
 ## Installation
 
