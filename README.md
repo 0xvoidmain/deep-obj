@@ -60,15 +60,18 @@ console.log(get(testObject, 'a.b.c[0].ae'), 10);
 ### DeepObject.get(object, path)
 
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+
 The function will return an VALUE or undefined
 
 ### DeepObject.set(object, path, value)
 
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+
 If you want non-existent paths to be initialize
 
 ### DeepObject.parse(path)
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+
 The function will return an array of path;
 
 Ex:
