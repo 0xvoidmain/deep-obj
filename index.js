@@ -28,13 +28,14 @@ function set(obj, path, value) {
 		for (var i = 0; i < keys.length - 1; i++) {
 			var key = keys[i];
 			if (!hasOwnProp.call(obj, key)) {
-				obj[key] = {}
+				return false;
 			};
 			obj = obj[key];
 		}
 		obj[keys[i]] = value;
+		return true;
 	} catch (ex) {
-
+		return false;
 	}
 }
 

@@ -75,4 +75,9 @@ set(testObject, 'a.b.c[0].ae', 10);
 assert.equal(get(testObject, 'a.b.c[0].ae'), 10);
 console.log('>> Ok\n');
 
+console.log('Test:', "set(testObject, 'a.b.c[0].ae.d.e.f.g.h', 10);\nassert.equal(get(testObject, 'a.b.c[0].ae.d.e.f.g.h'), undefined);");
+set(testObject, 'a.b.c[0].ae.d.e.f.g.h', 10);
+assert.equal(get(testObject, 'a.b.c[0].ae.d.e.f.g.h'), undefined);
+console.log('>> Ok\n');
+
 console.log('Good job');

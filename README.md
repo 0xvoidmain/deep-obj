@@ -53,6 +53,9 @@ console.log(get(testObject, '["test-abc"].a.b[0][2]'), 5);
 set(testObject, 'a.b.c[0].ae', 10);
 console.log(get(testObject, 'a.b.c[0].ae'), 10);
 
+set(testObject, 'a.b.c[0].ae.d.e.f.g.h', 10);
+console.log(get(testObject, 'a.b.c[0].ae.d.e.f.g.h'), undefined);
+
 ```
 
 ## API
@@ -67,7 +70,7 @@ The function will return an VALUE or undefined
 
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
 
-If you want non-existent paths to be initialize
+The function return TRUE or FALSE. Return TRUE if it can set value with the path
 
 ### DeepObject.parse(path)
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
