@@ -19,7 +19,12 @@ var testObject = {
 		a: {
 			b: [[1, 2, 3], [4, 5, 6]]
 		}
-	}
+	},
+	arr: [{
+		a: {
+			b: 1
+		}
+	}]
 }
 
 console.log('testObject = ' + JSON.stringify(testObject, null, 4));
@@ -50,6 +55,14 @@ console.log('>> Ok\n');
 
 console.log('Test:', "assert.equal(get(testObject, '[\"test-abc\"].a.b[0][2]'), testObject[\"test-abc\"].a.b[0][2]);");
 assert.equal(get(testObject, '["test-abc"].a.b[0][2]'), testObject["test-abc"].a.b[0][2]);
+console.log('>> Ok\n');
+
+console.log('Test:', "assert.equal(get(testObject.arr, '[0].a.b'), testObject.arr[0].a.b);");
+assert.equal(get(testObject.arr, '[0].a.b'), testObject.arr[0].a.b);
+console.log('>> Ok\n');
+
+console.log('Test:', "assert.equal(get(testObject.arr, '[0].a.b.d.e'), undefined);");
+assert.equal(get(testObject.arr, '[0].a.b.d.e'), undefined);
 console.log('>> Ok\n');
 
 console.log('Test:', "set(testObject, '[\"test-abc\"].a.b[0][2]', 5);\nassert.equal(get(testObject, '[\"test-abc\"].a.b[0][2]'), 5);");

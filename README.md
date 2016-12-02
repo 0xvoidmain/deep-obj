@@ -7,52 +7,82 @@ Set and get values on objects via dot-notation strings.
 ## Example
 
 ```js
-var deep = require('deep-get-set');
+var DeepObject = require('deep-object');
+var get = DeepObject.get;
+var set = DeepObject.set;
 
-var obj = {
-  foo: {
-    bar: 'baz'
-  }
-};
+var testObject = {
+	a: {
+		b: {
+			c: [{
+				ae: 1
+			}, {
+				ae2: ['demoo']
+			}]
+		},
+		d: [1,2,3]
+	},
+	'test-abc': {
+		a: {
+			b: [[1, 2, 3], [4, 5, 6]]
+		}
+	}
+}
 
-// Get
-console.log(deep(obj, 'foo.bar'));
-  // => "baz"
+console.log(get(testObject, 'a.b.c'), testObject.a.b.c);
 
-// Set
-deep(obj, 'foo.bar', 'hello');
-console.log(obj.foo.bar);
-  // => "hello"
+console.log(get(testObject, 'a.d[0]'), testObject.a.d[0]);
+
+console.log(get(testObject, 'a.b.c[0]'), testObject.a.b.c[0]);
+
+console.log(get(testObject, 'a.b.c[0]["ae"]'), testObject.a.b.c[0]["ae"]);
+
+console.log(get(testObject, 'a.b.c[0].ae'), testObject.a.b.c[0].ae);
+
+console.log(get(testObject, 'a.b.c[1].ae2[0]'), testObject.a.b.c[1].ae2[0]);
+
+console.log(get(testObject, '["test-abc"].a.b[0][2]'), testObject["test-abc"].a.b[0][2]);
+
+console.log(get(testObject.arr, '[0].a.b'), testObject.arr[0].a.b));
+
+console.log(get(testObject.arr, '[0].a.b.d.e'), undefined));
+
+set(testObject, '["test-abc"].a.b[0][2]', 5);
+console.log(get(testObject, '["test-abc"].a.b[0][2]'), 5);
+
+set(testObject, 'a.b.c[0].ae', 10);
+console.log(get(testObject, 'a.b.c[0].ae'), 10);
+
 ```
 
 ## API
 
-### deep(object, path[, value])
+### DeepObject.get(object, path)
 
-Where `path` is a dot-notation string `foo.bar`.
+Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+The function will return an VALUE or undefined
 
-- If `value` is passed it will be set on the path.
-- Set `deep.p = true` if you want non-existent paths to be initialized.
-- If you want to unset (or delete), pass `undefined` as the `value`.
+### DeepObject.set(object, path, value)
+
+Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+If you want non-existent paths to be initialize
+
+### DeepObject.parse(path)
+Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+The function will return an array of path;
+
+Ex:
+`foo.bar` => `['foo', 'bar']`
+`foo.bar[0][1]` => `['foo', 'bar', 0, 1]` 
+`[0][1].foo['bar']` => [0, 1, 'foo', 'bar']
 
 ## Installation
 
 With [npm](https://npmjs.org) do:
 
 ```bash
-npm install deep-get-set
+npm install deep-object
 ```
-
-## Note
-
-There's a dozen modules like this on [npm](https://npmjs.org).
-This is a fork from [@juliangruber's](https://github.com/juliangruber) [deep-access](https://github.com/juliangruber/deep-access) module, with a big portion of code directly copied from here: https://github.com/substack/js-traverse/blob/master/index.js#L11-L18.
-
-Similar modules:
-
-- https://github.com/deoxxa/dotty (this one I like because it uses recursion)
-- https://github.com/Ntran013/dot-access (pretty much the same as this)
-- https://github.com/substack/js-traverse (much more complex and useful)
 
 ## License
 
