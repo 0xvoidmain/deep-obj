@@ -24,13 +24,23 @@ var testObject = {
 		a: {
 			b: 1
 		}
-	}]
+	}],
+
+	'abc"de"': 2
 }
 
 console.log('testObject = ' + JSON.stringify(testObject, null, 4));
 
 console.log('Test:', "assert.equal(get(testObject, 'a.b.c'), testObject.a.b.c);");
 assert.equal(get(testObject, 'a.b.c'), testObject.a.b.c);
+console.log('>> Ok\n');
+
+console.log('Test:', "assert.equal(get(testObject, '[abc\"de\"]'), testObject['abc\"de\"']);");
+assert.equal(get(testObject, '[\'abc"de"\']'), testObject['abc"de"']);
+console.log('>> Ok\n');
+
+console.log('Test:', "assert.equal(get(testObject, '[\'[abc\"de\"]\']'), testObject['[abc\"de\"]']);");
+assert.equal(get(testObject, '[\'[abc"de"]\']'), testObject['[abc"de"]']);
 console.log('>> Ok\n');
 
 console.log('Test:', "assert.equal(get(testObject, 'a.d[0]'), testObject.a.d[0]);");

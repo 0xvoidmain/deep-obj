@@ -24,10 +24,16 @@ var testObject = {
 		a: {
 			b: [[1, 2, 3], [4, 5, 6]]
 		}
-	}
+	},
+	'abc"de"': 1,
+	'abc"de"': 2
 }
 
 console.log(get(testObject, 'a.b.c'), testObject.a.b.c);
+
+console.log(get(testObject, '[\'abc"de"\']'), testObject['abc"de"']);
+
+console.log(get(testObject, '[\'[abc"de"]\']'), testObject['[abc"de"]']);
 
 console.log(get(testObject, 'a.d[0]'), testObject.a.d[0]);
 
