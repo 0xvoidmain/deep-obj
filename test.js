@@ -26,7 +26,8 @@ var testObject = {
 		}
 	}],
 
-	'abc"de"': 2
+	'abc"de"': 2,
+	'[abc"de"]': 3
 }
 
 console.log('testObject = ' + JSON.stringify(testObject, null, 4));

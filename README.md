@@ -26,7 +26,7 @@ var testObject = {
 		}
 	},
 	'abc"de"': 1,
-	'abc"de"': 2
+	'[abc"de"]': 3
 }
 
 console.log(get(testObject, 'a.b.c'), testObject.a.b.c);
