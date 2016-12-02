@@ -4,39 +4,30 @@ var hasOwnProp = Object.prototype.hasOwnProperty;
 
 function get(obj, path) {
 	var result = null;
-	try {
-		var keys = parsePath(path);
-		result = obj
-		for (var i = 0; i < keys.length; i++) {
-			var key = keys[i];
-			if (!result || !hasOwnProp.call(result, key)) {
-				result = undefined;
-				break;
-			}
-			result = result[key];
+	var keys = parsePath(path);
+	result = obj
+	for (var i = 0; i < keys.length; i++) {
+		var key = keys[i];
+		if (!result || !hasOwnProp.call(result, key)) {
+			result = undefined;
+			break;
 		}
-		return result;
-	} catch (ex) {
-		console.log(ex);
-		return undefined;
+		result = result[key];
 	}
+	return result;
 }
 
 function set(obj, path, value) {
-	try {
-		var keys = parsePath(path);
-		for (var i = 0; i < keys.length - 1; i++) {
-			var key = keys[i];
-			if (!hasOwnProp.call(obj, key)) {
-				return false;
-			};
-			obj = obj[key];
-		}
-		obj[keys[i]] = value;
-		return true;
-	} catch (ex) {
-		return false;
+	var keys = parsePath(path);
+	for (var i = 0; i < keys.length - 1; i++) {
+		var key = keys[i];
+		if (!hasOwnProp.call(obj, key)) {
+			return false;
+		};
+		obj = obj[key];
 	}
+	obj[keys[i]] = value;
+	return true;
 }
 
 module.exports = {
