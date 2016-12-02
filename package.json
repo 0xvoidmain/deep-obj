@@ -1,0 +1,22 @@
+{
+  "name": "deep-object",
+  "version": "1.0.0",
+  "description": "Set and get values on objects via dot-notation strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "deep",
+    "object",
+    "get",
+    "set",
+    "string",
+    "utility",
+    "nested",
+    "access",
+    "property"
+  ],
+  "author": "tunght91",
+  "license": "MIT"
+}
