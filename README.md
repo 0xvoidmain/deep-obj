@@ -60,6 +60,24 @@ console.log(get(testObject, 'a.b.c[0].ae'), 10);
 set(testObject, 'a.b.c[0].ae.d.e.f.g.h', 10);
 console.log(get(testObject, 'a.b.c[0].ae.d.e.f.g.h'), undefined);
 
+console.log('Test performance');
+console.time();
+for (var i = 0; i < 1000; i++) {
+	get(testObject, 'a.b.c');
+	get(testObject, '[\'abc"de"\']');
+	get(testObject, '[\'[abc"de"]\']');
+	get(testObject, 'a.d[0]');
+	get(testObject, 'a.b.c[0]');
+	get(testObject, 'a.b.c[0]["ae"]');
+	get(testObject, 'a.b.c[0].ae');
+	get(testObject, 'a.b.c[1].ae2[0]');
+	get(testObject, '["test-abc"].a.b[0][2]');
+	get(testObject.arr, '[0].a.b');
+	get(testObject.arr, '[0].a.b.d.e');
+}
+console.timeEnd();
+
+
 ```
 
 ## API

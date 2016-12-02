@@ -2,6 +2,15 @@ module.exports = function(path) {
 	if (!path) return [];
 	if (typeof path !== 'string') return [];
 
+	// return path
+	// 	.replace(/\[|\]/g, '.')
+	// 	.replace(/\.+/g, '.')
+	// 	.replace(/^\.|\.$/g, '')
+	// 	.split('.')
+	// 	.map(function (value) {
+	// 	return value.replace(/^["']|["']$/g, '');
+	// 	});
+
 	var number = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9};
 	var currentProperty = null;
 	var isNumber = false;
