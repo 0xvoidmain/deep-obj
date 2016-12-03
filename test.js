@@ -93,7 +93,7 @@ console.log('>> Ok\n');
 
 console.log('Test performance');
 console.time();
-for (var i = 0; i < 1000; i++) {
+for (var i = 0; i < 10000; i++) {
 	get(testObject, 'a.b.c');
 	get(testObject, '[\'abc"de"\']');
 	get(testObject, '[\'[abc"de"]\']');
