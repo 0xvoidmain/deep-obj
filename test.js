@@ -48,6 +48,10 @@ console.log('Test:', "assert.equal(get(testObject, 'a.d[0]'), testObject.a.d[0])
 assert.equal(get(testObject, 'a.d[0]'), testObject.a.d[0]);
 console.log('>> Ok\n');
 
+console.log('Test:', "assert.equal(get(testObject, ['a', 'd', 0]), testObject.a.d[0]);");
+assert.equal(get(testObject, ['a', 'd', 0]), testObject.a.d[0]);
+console.log('>> Ok\n');
+
 console.log('Test:', "assert.equal(get(testObject, 'a.b.c[0]'), testObject.a.b.c[0]);");
 assert.equal(get(testObject, 'a.b.c[0]'), testObject.a.b.c[0]);
 console.log('>> Ok\n');

@@ -39,6 +39,8 @@ console.log(get(testObject, 'a.d[0]'), testObject.a.d[0]);
 
 console.log(get(testObject, 'a.b.c[0]'), testObject.a.b.c[0]);
 
+console.log(get(testObject, ['a', 'd', 0]), testObject.a.d[0]);
+
 console.log(get(testObject, 'a.b.c[0]["ae"]'), testObject.a.b.c[0]["ae"]);
 
 console.log(get(testObject, 'a.b.c[0].ae'), testObject.a.b.c[0].ae);
@@ -86,11 +88,15 @@ console.timeEnd();
 
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
 
+The path also can be an array: ['foo', 'bar', 0]
+
 The function will return an VALUE or undefined
 
 ### DeepObject.set(object, path, value)
 
 Where `path` is a string like `foo.bar` or `foo.bar[0][1]` or `[0][1].foo['bar']`.
+
+The path also can be an array: ['foo', 'bar', 0]
 
 The function return TRUE or FALSE. Return TRUE if it can set value with the path
 

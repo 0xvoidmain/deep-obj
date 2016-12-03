@@ -4,7 +4,9 @@ var hasOwnProp = Object.prototype.hasOwnProperty;
 
 function get(obj, path) {
 	var result = null;
-	var keys = parsePath(path);
+	var keys = typeof path == 'string' ? 
+					parsePath(path) : 
+					Array.isArray(path) ? path : [path];
 	result = obj
 	for (var i = 0; i < keys.length; i++) {
 		var key = keys[i];
@@ -18,7 +20,9 @@ function get(obj, path) {
 }
 
 function set(obj, path, value) {
-	var keys = parsePath(path);
+	var keys = typeof path == 'string' ? 
+					parsePath(path) : 
+					Array.isArray(path) ? path : [path];
 	for (var i = 0; i < keys.length - 1; i++) {
 		var key = keys[i];
 		if (!hasOwnProp.call(obj, key)) {
