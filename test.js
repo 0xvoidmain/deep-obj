@@ -27,22 +27,40 @@ var testObject = {
 	}],
 
 	'abc"de"': 2,
-	'[abc"de"]': 3
+	'[abc.de]': 3,
+	'a.b': 3
 }
 
 console.log('testObject = ' + JSON.stringify(testObject, null, 4));
+
+console.log('Test:', "assert.equal(get(testObject, ''), testObject);");
+assert.equal(get(testObject, ''), testObject);
+console.log('>> Ok\n');
+
+
+console.log('Test:', "assert.equal(get(testObject), testObject);");
+assert.equal(get(testObject), testObject);
+console.log('>> Ok\n');
 
 console.log('Test:', "assert.equal(get(testObject, 'a.b.c'), testObject.a.b.c);");
 assert.equal(get(testObject, 'a.b.c'), testObject.a.b.c);
 console.log('>> Ok\n');
 
-// console.log('Test:', "get(testObject, '[\'abc\"de\"\']'), testObject['abc\"de\"'];");
-// assert.equal(get(testObject, '[\'abc"de"\']'), testObject['abc"de"']);
-// console.log('>> Ok\n');
+console.log('Test:', "assert.equal(get(testObject, '[\"a.b\"]'), testObject['a.b']);");
+assert.equal(get(testObject, '["a.b"]'), testObject['a.b']);
+console.log('>> Ok\n');
 
-// console.log('Test:', "assert.equal(get(testObject, '[\'[abc\"de\"]\']'), testObject['[abc\"de\"]']);");
-// assert.equal(get(testObject, '[\'[abc"de"]\']'), testObject['[abc"de"]']);
-// console.log('>> Ok\n');
+console.log('Test:', "get(testObject, '[\'abc\"de\"\']'), testObject['abc\"de\"'];");
+assert.equal(get(testObject, '[\'abc"de"\']'), testObject['abc"de"']);
+console.log('>> Ok\n');
+
+console.log('Test:', "assert.equal(get(testObject, '[\'[abc\"de\"]\']'), testObject['[abc\"de\"]']);");
+assert.equal(get(testObject, '[\'[abc"de"]\']'), testObject['[abc"de"]']);
+console.log('>> Ok\n');
+
+console.log('Test:', "assert.equal(get(testObject, ''), testObject);");
+assert.equal(get(testObject, ''), testObject);
+console.log('>> Ok\n');
 
 console.log('Test:', "assert.equal(get(testObject, 'a.d[0]'), testObject.a.d[0]);");
 assert.equal(get(testObject, 'a.d[0]'), testObject.a.d[0]);

@@ -29,7 +29,13 @@ var testObject = {
 	'[abc"de"]': 3
 }
 
+console.log(get(testObject, ''), testObject);
+
+console.log(get(testObject), testObject);
+
 console.log(get(testObject, 'a.b.c'), testObject.a.b.c);
+
+console.log(get(testObject, '["a.b"]'), testObject['a.b']);
 
 console.log(get(testObject, '[\'abc"de"\']'), testObject['abc"de"']);
 

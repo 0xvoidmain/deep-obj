@@ -3,6 +3,9 @@ var parsePath = require('./ParsePath');
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
 function get(obj, path) {
+	if (path === undefined || path === null) {
+		return obj;
+	}
 	var result = null;
 	var keys = typeof path == 'string' ? 
 					parsePath(path) : 
