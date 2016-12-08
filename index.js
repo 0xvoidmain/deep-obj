@@ -23,6 +23,9 @@ function get(obj, path) {
 }
 
 function set(obj, path, value) {
+	if (path === undefined || path === null) {
+		return false;
+	}
 	var keys = typeof path == 'string' ? 
 					parsePath(path) : 
 					Array.isArray(path) ? path : [path];
