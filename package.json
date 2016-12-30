@@ -1,10 +1,14 @@
 {
   "name": "deep-obj",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Set and get values on objects via dot-notation strings",
   "main": "index.js",
   "scripts": {
     "test": "node ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tunght91/deep-obj"
   },
   "keywords": [
     "deep",
